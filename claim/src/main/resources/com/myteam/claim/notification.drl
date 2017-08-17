@@ -1,0 +1,113 @@
+package com.myteam.claim;
+dialect  "mvel"
+
+import com.myteam.claim.Notification;
+
+rule "Notification 1"
+    salience 65535
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "1" && sumPremium > 0 && sumPremium <= 10000)
+    then
+        n.getResult().add("Level_C2_1_1");// 返回人员等级
+end
+
+rule "Notification 2"
+    salience 65534
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "1" && sumPremium > 10000 && sumPremium <= 20000)
+    then
+        n.getResult().add("Level_C2_1_2");// 返回人员等级
+end
+
+rule "Notification 3"
+    salience 65533
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "2" && sumPremium > 20000 && sumPremium <= 30000)
+    then
+        n.getResult().add("Level_C2_2_1");// 返回人员等级
+end
+
+rule "Notification 4"
+    salience 65532
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "2" && sumPremium > 30000 && sumPremium <= 40000)
+    then
+        n.getResult().add("Level_C2_2_2");// 返回人员等级
+end
+
+rule "Notification 5"
+    salience 65531
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "3" && sumPremium > 40000 && sumPremium <= 50000)
+    then
+        n.getResult().add("Level_C2_3_1");// 返回人员等级
+end
+
+rule "Notification 6"
+    salience 65530
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C2" && level == "3" && sumPremium > 50000 && sumPremium <= 60000)
+    then
+        n.getResult().add("Level_C2_3_2");// 返回人员等级
+end
+
+
+rule "Notification 7"
+    salience 65529
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "1" && sumPremium > 60000 && sumPremium <= 70000)
+    then
+        n.getResult().add("Level_C3_1_1");// 返回人员等级
+end
+
+rule "Notification 8"
+    salience 65528
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "1" && sumPremium > 70000 && sumPremium <= 80000)
+    then
+        n.getResult().add("Level_C3_1_2");// 返回人员等级
+end
+
+rule "Notification 9"
+    salience 65527
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "2" && sumPremium > 80000 && sumPremium <= 90000)
+    then
+        n.getResult().add("Level_C3_2_1");// 返回人员等级
+end
+
+rule "Notification 10"
+    salience 65526
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "2" && sumPremium > 90000 && sumPremium <= 100000)
+    then
+        n.getResult().add("Level_C3_2_2");// 返回人员等级
+end
+
+rule "Notification 11"
+    salience 65525
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "3" && sumPremium > 100000 && sumPremium <= 110000)
+    then
+        n.getResult().add("Level_C3_3_1");// 返回人员等级
+end
+
+rule "Notification 12"
+    salience 65524
+    lock-on-active true
+    when
+        n:Notification(businessClass == "C3" && level == "3" && sumPremium > 110000 && sumPremium <= 120000)
+    then
+        n.getResult().add("Level_C3_3_2");// 返回人员等级
+end
